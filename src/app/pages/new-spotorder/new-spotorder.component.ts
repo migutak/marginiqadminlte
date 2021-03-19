@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-new-spotorder',
+  templateUrl: './new-spotorder.component.html',
+  styleUrls: ['./new-spotorder.component.css']
+})
+export class NewSpotorderComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
