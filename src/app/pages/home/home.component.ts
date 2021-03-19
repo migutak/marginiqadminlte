@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  custorders: any = {}
+  ord: any = {};
+  offertitle: string;
+
   constructor() { }
 
   ngOnInit(): void {

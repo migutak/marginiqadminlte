@@ -1,82 +1,131 @@
 <!-- Content Header (Page header) -->
 <div class="content-header">
     <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="m-0 text-dark">Starter Page</h1>
-        </div><!-- /.col -->
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Starter Page</li>
-          </ol>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">Home</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="" routerLink="/home">Home</a></li>
+                    <li class="breadcrumb-item active">spot orders</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
     </div><!-- /.container-fluid -->
-  </div>
-  <!-- /.content-header -->
 
-  <!-- Main content -->
-  <div class="content">
+    
+    
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <b>Forex Spot</b> | <a href="" routerLink="/home">Forex Swap</a> | <a>Forex Forward</a> | <a>Money Market</a>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#" routerLink="newspotorder" >New Spot Order</a></li>
+            </ol>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+</div>
+<!-- /.content-header -->
+
+<!-- Main content -->
+<div class="content">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+        <div class="row">
+            <div class="col-lg-7">
+                <!-- Map box -->
+                <div class="box box-solid bg-light-blue-gradient">
 
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's
-                content.
-              </p>
+                    Home FxSpot {{custorders.offernotification}}
 
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+                </div>
+                <input ng-model="searchKeyword" type="text" placeholder="Filter by" autofocus>
+                <div class="cloading"></div>
+                <div class="table-responsive" style="min-Height:500px">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th>View</th>
+                                <th>Deal Number</th>
+                                <th>Currency Pair</th>
+                                <th>Buy/Sell</th>
+                                <th>Settlement Date</th>
+                                <th>Buy Amount</th>
+                                <th>Sell Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="ord in spotorders | filter: searchKeyword">
+                                <td>
+                                    <button class="btn btn-xs btn-info" ng-click="viewoffers(ord.orderid)"><i
+                                            class="fa fa-external-link"></i> <span
+                                            class="badge">{{ord.nOffers}}</span></button>
+                                    <button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button>
+                                </td>
+                                <td>{{ord.orderid}}</td>
+                                <td>{{ord.ccypair}}</td>
+                                <td>{{ord.buysell}}</td>
+                                <td>{{ord.settlementdate}}</td>
+                                <td>{{ord.ccypair}} {{ord.buyorderamount | number}}</td>
+                                <td>{{ord.ccypair}} {{ord.sellorderamount | number}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div><!-- /.table-responsive -->
             </div>
-          </div>
-
-          <div class="card card-primary card-outline">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-
-              <p class="card-text">
-                Some quick example text to build on the card title and make up the bulk of the card's
-                content.
-              </p>
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
+            <!-- /.col-md-6 -->
+            <div class="col-lg-5">
+                <div class="row">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_1" data-toggle="tab">Offers {{offertitle}}</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_1">
+                                <input ng-model="query" type="text" placeholder="Filter by" autofocus>
+                                <table class="table table-hover">
+                                    <tr>
+                                        <th>Bank</th>
+                                        <th>Rate</th>
+                                        <th>Settlement Amount</th>
+                                        <th>Date of Offer</th>
+                                        <th>Expiry Date</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr ng-repeat="ord in orderdetails | filter:query">
+                                        <td>{{ord.offeredby}}</td>
+                                        <td>{{ord.offeredrate}}</td>
+                                        <td>{{ord.ccysettleamount}} {{ord.settleamount | number}}</td>
+                                        <td>{{ord.offerdate}}</td>
+                                        <td>{{ord.settlementdate}}</td>
+                                        <td>
+                                            <div class="btn-group pull-left">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
+                                                        class="fa fa-gears"></i></a>
+                                                <ul class="dropdown-menu icons-right dropdown-menu-right">
+                                                    <li><a href="#"><i class="fa fa-commenting"></i> Chat</a></li>
+                                                    <li><a href="#/offeraccept/{{ord.offerid}}"><i
+                                                                class="fa fa-check"></i> Accept</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div><!-- /.tab-pane -->
+                        </div><!-- /.tab-pane -->
+                    </div><!-- /.tab-content -->
+                    <div class="modalbusy" style="display: none">
+                        <div class="center">
+                            <img alt="" src="images/loading30.gif" />
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div><!-- /.card -->
+            <!-- /.col-md-6 -->
         </div>
-        <!-- /.col-md-6 -->
-        <div class="col-lg-6">
-          <div class="card">
-            <div class="card-header">
-              <h5 class="m-0">Featured</h5>
-            </div>
-            <div class="card-body">
-              <h6 class="card-title">Special title treatment</h6>
-
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-
-          <div class="card card-primary card-outline">
-            <div class="card-header">
-              <h5 class="m-0">Featured</h5>
-            </div>
-            <div class="card-body">
-              <h6 class="card-title">Special title treatment</h6>
-
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-6 -->
-      </div>
-      <!-- /.row -->
+        <!-- /.row -->
     </div><!-- /.container-fluid -->
-  </div>
-  <!-- /.content -->
+</div>
+<!-- /.content -->

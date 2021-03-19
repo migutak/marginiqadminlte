@@ -50,10 +50,10 @@ export class LoginComponent implements OnInit {
 
   getuser(username, password) {
     this.marginService.login(username).subscribe(user => {
-      if (user.length > 0) {
+      if (user) {
         user.authdata = window.btoa(username + ':' + password);
-        localStorage.setItem('currentUser', JSON.stringify(user[0]));
-        sessionStorage.setItem('currentUser', JSON.stringify(user[0]));
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        sessionStorage.setItem('currentUser', JSON.stringify(user));
         this.router.navigate(['/home']);
       } else {
         this.error = 'Error';

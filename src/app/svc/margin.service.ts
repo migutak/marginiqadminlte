@@ -12,6 +12,6 @@ export class MarginService {
   ) { }
 
   login(username: string) {
-    return this.httpClient.get<any>(environment.api + '/api/tblusers/search?username=' + username);
+    return this.httpClient.get<any>(environment.api + '/tblusers/' + username);
   }
 }

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewSpotorderComponent implements OnInit {
 
+  option:any = [];
+  ccytitle; any;
+
   constructor() { }
 
   ngOnInit(): void {

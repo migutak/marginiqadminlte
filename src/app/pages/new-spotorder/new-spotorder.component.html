@@ -1,1 +1,127 @@
-<p>new-spotorder works!</p>
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">New Spot Order</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="" routerLink="/home">Home</a></li>
+                    <li class="breadcrumb-item active">New spot order</li>
+                </ol>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+
+
+
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <b>Forex Spot</b> | <a href="" routerLink="/home">Forex Swap</a> | <a>Forex Forward</a> | <a>Money
+                Market</a>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<div class="content">
+    <div class="container-fluid">
+        <div class="container row">
+            <form ng-submit="newspotOrder()" method="post" id="neworderform" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Buy/Sell</label>
+                    <div class="col-xs-5 selectContainer">
+                        <select name="colors" class="form-control" ng-model="neworder.buysell" required>
+                            <option>BUY</option>
+                            <option>SELL</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Currency pair</label>
+                    <div class="col-xs-5 selectContainer">
+                        <select class="form-control" ng-model="neworder.ccypair" required>
+                            <option>USD/KES</option>
+                            <option>KES/UGX</option>
+                            <option>KES/TZS</option>
+                            <option>EUR/KES</option>
+                            <option>GBP/KES</option>
+                            <option>CAD/KES</option>
+                            <option>AUD/KES</option>
+                            <option>ZAR/KES</option>
+                            <option>JPY/KES</option>
+                            <option>RUB/KES</option>
+                            <option>BRL/KES</option>
+                            <option>EUR/USD</option>
+                            <option>GBP/USD</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Buy Amount</label>
+                    <div class="col-xs-5 selectContainer">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                {{ccytitle}}
+                            </div>
+                            <input type="text" class="form-control" ng-model="neworder.buyorderamount"
+                                ng-disabled="s_buy" ng-blur="setfunct()">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Sell Amount</label>
+                    <div class="col-xs-5 selectContainer">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                {{ccytitle}}
+                            </div>
+                            <input type="text" class="form-control" ng-model="neworder.sellorderamount"
+                                ng-disabled="s_sell" ng-blur="setfunct2()">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Select Bank(s)</label>
+                    <div class="col-xs-4 selectContainer">
+                        <select class="form-control select2" multiple="multiple" data-placeholder="Select Bank(s)"
+                            ng-model="neworder.bank">
+                            <option ng-repeat="option in banks" value="{{option.bankid}}">{{option.bankname}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Settlement Date</label>
+                    <div class="col-xs-5 selectContainer">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="datepicker" id="settlement" name="settlement"
+                                ng-model="neworder.settlementdate" required />
+                        </div><!-- /.input group -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Comment</label>
+                    <div class="col-xs-5 selectContainer">
+                        <textarea class="form-control" rows="3" placeholder="Enter ..."
+                            ng-model="neworder.custcomment"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label"></label>
+                    <div class="col-xs-5 selectContainer">
+                        <a class="btn btn-danger" href="#/">Cancel</a>
+                        <button type="submit" class="btn btn-info" ng-disabled="neworderform.$invalid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
