@@ -28,7 +28,7 @@
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
-            <li class="nav-item has-treeview menu-open">
+            <li class="nav-item has-treeview menu-open" *ngIf="isCust">
               <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
@@ -38,20 +38,20 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a routerLink="/" class="nav-link active" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                  <a routerLink="/home" class="nav-link active" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Home</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="#" routerLink="custconfirmations" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Confirmations</p>
                     <span class="right badge badge-success">0</span>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="#" routerLink="custpayments" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Payments</p>
                     <span class="right badge badge-success">0</span>
@@ -69,25 +69,25 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="#/rptorders" class="nav-link">
+                  <a href="#" routerLink="/home" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Orders report</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="#" routerLink="/home" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Confirmations report</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="#" routerLink="/home" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Payments report</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="#" routerLink="/home" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Exception report</p>
                   </a>

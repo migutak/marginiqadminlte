@@ -14,6 +14,8 @@ import { MainSidebarComponent } from './main/main-sidebar/main-sidebar.component
 import { HomeComponent } from './pages/home/home.component';
 import { NewSpotorderComponent } from './pages/new-spotorder/new-spotorder.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { CustConfirmationsComponent } from './pages/cust-confirmations/cust-confirmations.component';
+import { CustPaymentsComponent } from './pages/cust-payments/cust-payments.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     MainSidebarComponent,
     HomeComponent,
     NewSpotorderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CustConfirmationsComponent,
+    CustPaymentsComponent
   ],
   imports: [
     BrowserModule,
