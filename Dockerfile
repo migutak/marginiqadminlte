@@ -12,4 +12,4 @@ EXPOSE 80
 # run nginx
 CMD ["nginx", "-g", "daemon off;"]
 
-# docker build -t migutak/margin:1.0
+# docker build -t migutak/margin:1.1

@@ -7,9 +7,9 @@ import { NewSpotorderComponent } from './pages/new-spotorder/new-spotorder.compo
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [{
-  path: 'login', component: LoginComponent
+  path: '', component: LoginComponent
 }, {
-  path: '', component: MainComponent,
+  path: 'home', component: MainComponent,
   children: [{
     path: '', component: HomeComponent
   }, {
