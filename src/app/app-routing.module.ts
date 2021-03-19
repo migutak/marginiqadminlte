@@ -7,17 +7,17 @@ import { NewSpotorderComponent } from './pages/new-spotorder/new-spotorder.compo
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [{
-  path: '', component: MainComponent, 
-    children: [{
-      path: '', component: HomeComponent
-    }, {
-      path: 'newspotorder', component: NewSpotorderComponent
-    }, {
-      path: '**', component: PageNotFoundComponent
-    }]
-  
-}, {
   path: 'login', component: LoginComponent
+}, {
+  path: '', component: MainComponent,
+  children: [{
+    path: '', component: HomeComponent
+  }, {
+    path: 'newspotorder', component: NewSpotorderComponent
+  }, {
+    path: '**', component: PageNotFoundComponent
+  }]
+
 }];
 
 @NgModule({
