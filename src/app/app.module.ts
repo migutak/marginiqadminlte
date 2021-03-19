@@ -16,6 +16,8 @@ import { NewSpotorderComponent } from './pages/new-spotorder/new-spotorder.compo
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { CustConfirmationsComponent } from './pages/cust-confirmations/cust-confirmations.component';
 import { CustPaymentsComponent } from './pages/cust-payments/cust-payments.component';
+import { BidsmadeComponent } from './pages/bidsmade/bidsmade.component';
+import { BidsacceptedComponent } from './pages/bidsaccepted/bidsaccepted.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { CustPaymentsComponent } from './pages/cust-payments/cust-payments.compo
     NewSpotorderComponent,
     PageNotFoundComponent,
     CustConfirmationsComponent,
-    CustPaymentsComponent
+    CustPaymentsComponent,
+    BidsmadeComponent,
+    BidsacceptedComponent
   ],
   imports: [
     BrowserModule,

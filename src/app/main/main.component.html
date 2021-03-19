@@ -19,7 +19,7 @@
             <img src="assets/img/default-150x150.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" routerLink="home" class="d-block">username</a>
+            <a href="#" routerLink="home" class="d-block">{{username}}</a>
           </div>
         </div>
   
@@ -59,6 +59,30 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item has-treeview menu-open" *ngIf="isBank">
+                <a href="#" class="nav-link active">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Menu
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a routerLink="bidsmade" class="nav-link active" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Bids/Offers made</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" routerLink="bidsaccepted" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Bids/offers accepted</p>
+                      <span class="right badge badge-success">0</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
             <li class="nav-item has-treeview">
               <a class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
